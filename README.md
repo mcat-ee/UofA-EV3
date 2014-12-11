@@ -3,6 +3,12 @@ UofA-EV3
 
 TODO
 --------
+  * Connectivity
+   * Establish USB connectivity
+    * Evaluate and compare to NXJ 
+   * Check bluetooth connectivity  
+    * Evaluate and compare to NXJ
+   * Determine functionality of EV3 Wifi 
   * Sensor tests
     * Light sensor
       * Test cases 
