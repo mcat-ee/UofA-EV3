@@ -14,12 +14,13 @@ TODO
       * Test cases 
     * Color sensor
       * Test cases
+        * Testing accuracy by comparing detected values to printed on paper values 
     * Gyroscope sensor
       * Test cases
       * Investigate floating value bug
-       * Reproduction
-       * Possible causes
-       * Possible solutions
+        * Reproduction
+        * Possible causes
+        * Possible solutions
     * 'Rotation sensor'
       * Test cases
       * Possible uses? - is this worth including?
