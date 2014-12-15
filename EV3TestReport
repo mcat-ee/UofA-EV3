@@ -1,0 +1,167 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\setlength{\parindent}{0pt}
+\newlength{\drop}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{textcomp}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{fancyhdr} % For headers and footers
+\usepackage{vhistory} % For revision history
+\pagestyle{fancy}
+\lhead{Escher Inc. (UG-11) SPMP}
+\rhead{\thepage}
+\cfoot{}
+
+\begin{document}
+  \begin{titlepage}
+    \drop=0.1\textheight
+    \centering
+    \vspace*{\baselineskip}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}\\[\baselineskip]
+    {\scshape \LARGE Test report \\[0.3\baselineskip] for EV3 Robot Kit}\\[0.2\baselineskip]
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}\\[\baselineskip]
+    {\scshape Issued for:  University of Adelaide}\\[0.2\baselineskip]
+    \vfill
+    \scshape
+    Authors: \\ Thomas McAtee (a1608768) \\ Xiang Guo (a1077337) \par
+    \vspace*{2\baselineskip}
+
+    {\large Decemeber 19th 2014}\par
+      \thispagestyle{empty}
+
+  	\end{titlepage}
+
+  \thispagestyle{empty}
+  \newpage
+
+
+  \tableofcontents
+  \thispagestyle{empty}
+  \newpage
+  \setcounter{page}{1}
+  	\section{Introduction}
+	This report was created to test the functionality of the new Lego EV3 Robot kit acquired by the University of Adelaide for potential use as part of future Software Engineering Project course. The EV3 will be tested against the previously used Lego NXT Robot kits and judged on their feasibility to replace the older NXT Robot.\\
+	
+	The following sections will provide a brief overview on some of the differences between the NXT and the EV3. For more details please refer to th rest of this document.
+
+		\subsection{Brick Comparison}
+
+		\subsection{New Features}
+ 		
+ 		\subsection{Improvements}
+
+	\section{Hardware}
+	\subsection{EV3 Brick}
+		\subsubsection{Display}
+		\subsubsection{Ports}
+		\subsubsection{Connections}
+		\subsubsection{Battery}
+		\subsubsection{Other}
+
+		
+  	\subsection{Sensors}
+  		\subsubsection{Light}
+  		Same device as the NXT Robot. New API on EV3 which returns a float instead of an int. Accurate to 2 decimal places. New API does not allow calibration. The NXT API did not do a true calibration anyway, it simply created upper or lower bounds and normalised the sensor reading in software. If users wish to do this kind of soft calibration, they can use the source code for the NXT LeJOS API as a guide. \\
+  		
+  		Has two modes, reflection and ambient. Reflection is the default mode and should be used for line following code. Black lines on normal print paper show up at around 40 percent reflection whereas white paper shows up as roughly 75%.
+  		
+  		Ambient mode can be used to detect light sources. This might be an interesting feature if the robot can orientate itself based on a light source.
+  		
+  		
+  		\subsubsection{Color}
+  		Has three modes, Reflection, Ambient and Color. Ambient and Reflection modes are the same as the Light Sensor equivalent, however the sensitivity of the sensor is different. \\
+  		
+  		Ambient mode is around half the sensitivity of the Light Sensor which means it should be able to differentiate between relatively bright light sources but might have trouble differentiating low level light sources. \\
+  		
+  		Reflection mode is much more sensitive than the Light Sensor. Black lines on standard paper at 10mm range returned a reflection result of around 10 percent whereas white paper at the same distance returned 70 to 80 percent. This increased sensitivity should help in the project for Line Following and should be able to better handle smudges and imperfections on the test maps if the user implements a suitable tolerance in the code. \\
+  		
+  		The color mode is meant to differentiate between up to 8 different colors, black, gray, red, green, yellow, blue, magenta, white. Testing was done using a laser printed standard 80gsm A3 paper, which contained a 256 color RGB chart. All tests were conducted at a range of approximately 5mm and at varying angles between 60 to 120 degrees. The sensor was able to pick up solid “primary” colors without issue at the angles tested. By primary we mean any colour where it's RGB hex value was represented by only pairs of F or 0. Eg. FFFFFF for white, FF0000 for red, FFFF00 for yellow etc. \\
+  		
+  		Intermediate colors produced mixed results depending on the angle. Eg. FF8700 can be recognised as red at certain angles and as yellow at other angles. This is due to the reflection of the floodlight used by the sensor and the reflectivity of the ink on the paper. Therefore it is recommended in future projects to use only “primary” colors and non reflective paper to reduce the likelihood of erroneous readings. Other precautions that can be taken is to use colors that a true primary RGB eg Black 000000, white, FFFFFF, Red FF0000, Green 00FF00 or Blue 0000FF only and calibrate the sensor to only return one of those options. \\
+  		
+  		
+  		
+		\subsubsection{Gyroscope}
+		This new sensor is amazing when actually working. It will report either changes to the angle, or rate of change to the angle of the sensor with a decent amount of accuracy (plus or minus a degree or two). \\
+		
+		During testing it was noted that an error that causes a sensor “drift” occasionally appears where the sensor reading will slowly increment or decrement. Using the Lego test suite, this issue could be solved by unplugging and replugging the sensor from the port. However, using the standard LeJOS test suite, unplugging the sensor resulted in an exception which it was not able to recover from even when sensor is replugged in. A restart of the brick may be required if this bug appears. This will be something of concern if future students wish to incorporate the sensor in a project. This appears to be a firmware issue, and not related to LeJOS, future firmware releases may address this issue. Please note that this bug will appear straight away when the sensor is activated, it will not occur mid operation. So if the sensor is properly started and checked when the brick is turned on, it should not present a problem later during other operations. It is then advised to have a gyroscope test in LeJOS before starting any main programs.\\
+		
+		Possible expansions: 
+		-the different modes the sensor can be in
+		-possible use of gyros to measure non-horizontal axes\\
+		
+		
+  		\subsubsection{Ultra Sonic}
+  		Much more accurate than the NXT sensor. Testing against different objects under 40cm distance against a tape measurer revealed a much improved sensor in the new kit. The EV3 US sensor had much higher fidelity and returned measurements in 1mm increments although the accuracy can have a margin of error between +- 4mm when detected surface was front on to the sensor. The older NXT US sensor was only able to report in 1cm increments and much higher margin of error of +- 3cm. \\
+  		 
+  		The minimum range of the sensor was also much improved. The NXT sensor loses accuracy within roughly 12cm. EV3 sensor was able to maintain accuracy to within 4cm. \\
+  		
+  		The new sensor's cone of detection remains relatively narrow, no different to the NXT version. And both sensors suffer decreases in accuracy when the detected surface is at a sharp angle. The EV3 sensor was able to maintain accuracy when detected surface is at no more than 30 degree angle to the sensor(where 0 degree means completely front on to the sensor).\\
+  		
+  		
+  		\subsubsection{Bump}
+  		\subsubsection{Backwards Compatibility}	
+  		All NXT sensors can be used on the EV3 Brick with out issue. However, EV3 sensors will not be recognised by the NXT brick.
+
+	\subsection{Motors}	
+		\subsubsection{Large}
+	
+		\subsubsection{Medium}
+		The rotation sensor is a motor with less torque than a Large motor (typically used to move the robot) but with higher speed due to it's smaller diameter (it is capable of 260 RPM rather than the Large’s 175). \\
+	
+		Possible problems: depending on the application it may be very important to keep track of the 'arm' being moved by the motors position. In tests it proved very easy to cause the shovel arm (design included in the Lego build manual) to collide with the motor itself which could potentially damage the internal mechanics of the motor.\\
+	
+		(insert image of collision here)\\
+	
+		To counteract this, it may be necessary to 'reset' the position of the arm during device shutdown (this method description implies that the maintained 'position' of the motor will be reset upon a device reset)\\
+	
+		The Rotation Sensor utilises a motor port, which as part of the project shouldn't be a problem as students will only be provided with three modules that can utilise the four ports.
+
+		\subsubsection{Backwards Compatibility}	
+	
+	\subsection{Building blocks}
+	
+	
+
+	
+
+
+
+	\section{Software}
+	\subsection{Eclipse}
+	\subsection{Java RMI}
+ 
+ 	\section{Connectivity}
+ 	\subsection{WiFi}
+ 		\subsubsection{OSX}
+ 		\subsubsection{Windows}
+ 	\subsection{Bluetooth}
+  		\subsubsection{OSX}
+  		\subsubsection{Windows}
+ 	\subsection{USB}
+ 		\subsubsection{OSX}
+ 		\subsubsection{Windows}
+
+ 
+   	\section{Conclusion}
+   		\subsection{Feasibility}
+   		\subsection{Recommendations} 
+   		\subsection{Additional project ideas} 
+
+
+
+  \section{Revision History}
+  \begin{center}
+  \begin{tabular}{ | l | l | l | p{4cm} |}
+  \hline
+  \textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Description} \\ \hline
+  1.0 & 15 Dec 14 & Xiang Guo (a1077337) & Created Draft 1 \\ \hline
+
+  \end{tabular}
+  \end{center}
+
+\end{document}
