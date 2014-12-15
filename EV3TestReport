@@ -1,16 +1,12 @@
 \documentclass[11pt, a4paper, oneside]{article}
 \setlength{\parindent}{0pt}
 \newlength{\drop}
-\usepackage{multirow}
-\usepackage{rotating}
 \usepackage{textcomp}
-\usepackage{lscape}
-\usepackage{longtable}
 \usepackage{graphicx}
 \usepackage{fancyhdr} % For headers and footers
 \usepackage{vhistory} % For revision history
 \pagestyle{fancy}
-\lhead{Escher Inc. (UG-11) SPMP}
+\lhead{EV3 Test Report}
 \rhead{\thepage}
 \cfoot{}
 
