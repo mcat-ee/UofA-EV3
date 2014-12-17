@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr} % For headers and footers
 \usepackage{vhistory} % For revision history
+\usepackage{hyperref}
 \pagestyle{fancy}
 \lhead{EV3 Test Report}
 \rhead{\thepage}
@@ -43,19 +44,32 @@
 	This report was created to test the functionality of the new Lego EV3 Robot kit acquired by the University of Adelaide for potential use as part of future Software Engineering Project course. The EV3 will be tested against the previously used Lego NXT Robot kits and judged on their feasibility to replace the older NXT Robot.\\
 
 	The following sections will provide a brief overview on some of the differences between the NXT and the EV3. For more details please refer to th rest of this document.
-
+\textbf{TODO:} add images of both devices to the intro
 		\subsection{Brick Comparison}
 
 		\subsection{New Features}
-
+\textbf{TODO:} Add images of new modules (e.g. wifi, USB host port, medium motor, improved ultrasonic sensor, etc.)
  		\subsection{Improvements}
 
 	\section{Hardware}
 	\subsection{EV3 Brick}
 		\subsubsection{Display}
+		\begin{itemize}
+			\item Resolution almost doubled
+			\item Allows for better exception feedback
+		\end{itemize}
 		\subsubsection{Ports}
+		\begin{itemize}
+		\item Still using RJ-* connector; possibly proprietary? \textbf{TODO:} research
+		\item Possibly not enough ports for the multitude of sensors available? (Possibly the best problem to have?)
+		\end{itemize}
 		\subsubsection{Connections}
+		
 		\subsubsection{Battery}
+		\begin{itemize}
+		\item Lithium ion (AA battery pack also supplied)
+		\item Much improved, especially given the nature of the new modifications (WIFI/Unix based OS)
+		\end{itemize}
 		\subsubsection{Other}
 
 
@@ -118,9 +132,9 @@
 		The Rotation Sensor utilises a motor port, which as part of the project shouldn't be a problem as students will only be provided with three modules that can utilise the four ports.
 
 		\subsubsection{Backwards Compatibility}
-
+			\textbf{TODO:} has this been tested??
 	\subsection{Building blocks}
-
+		\textbf{TODO:} What exactly are the building blocks???
 
 
 
@@ -129,9 +143,16 @@
 
 	\section{Software}
 	\subsection{Eclipse}
-  Functionality of the Eclipse plugin (pushing code from a PC to the block) has been vastly improved
+  Functionality of the Eclipse plugin (pushing code from a PC to the block) has been vastly improved\\
+  \textbf{TODO:} add image describing the simplicity of pushing code to the EV3 block
 	\subsection{Java RMI}
-    Show examples, demonstrate different paradigms (e.g. setting one device as the 'default' block vs keeping a hold of several blocks)
+    Show examples, demonstrate different paradigms (e.g. setting one device as the 'default' block vs keeping a hold of several blocks)\\
+    \textbf{TODO:} example of obtaining a device connection in new leJOS compared to old
+    	\subsection{leJOS}
+	\begin{itemize}
+		\item New features supported
+		\item QWERTY onscreen-keyboard is a little unwieldy
+	\end{itemize}
  	\section{Connectivity}
    \begin{itemize}
     \item Due to architecture change you can connect directly to the block via an IP address
@@ -143,9 +164,14 @@
     \item Connections can be configured on the Micro SD image to avoid repeated configuration
    \end{itemize}
  		\subsubsection{OSX}
+			Tested, functional
  		\subsubsection{Windows}
  	\subsection{Bluetooth}
   		\subsubsection{OSX}
+		\begin{itemize}
+			\item Still unable to simply connect via bluetooth
+			\item Forum posts show that other users' efforts are similarly problem affected
+		\end{itemize}
   		\subsubsection{Windows}
  	\subsection{USB}
     \begin{itemize}
@@ -162,6 +188,7 @@
    	\section{Conclusion}
    		\subsection{Feasibility}
    		\subsection{Recommendations}
+			Line following design ideas
    		\subsection{Additional project ideas}
 
 
@@ -175,5 +202,6 @@
 
   \end{tabular}
   \end{center}
+  \textbf{TODO:} Synchronise this with GitHub revision history
 
 \end{document}
