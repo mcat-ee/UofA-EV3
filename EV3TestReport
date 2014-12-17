@@ -136,31 +136,39 @@
 	\subsection{Building blocks}
 		\textbf{TODO:} What exactly are the building blocks???
 
-
-
-
-
-
 	\section{Software}
 	\subsection{Eclipse}
   Functionality of the Eclipse plugin (pushing code from a PC to the block) has been vastly improved\\
-  \textbf{TODO:} add image describing the simplicity of pushing code to the EV3 block
+  \begin{itemize}
+	\item  \textbf{TODO:} add image describing the simplicity of pushing code to the EV3 block
+	\item Talk about API documentation integration (intellisense?)
+  \end{itemize}
 	\subsection{Java RMI}
+	\begin{itemize}
+		\item Explain what the RMI model involves
+		\item Explain what this enables an EV3 programmer to do
+		\item Give an example of a code block for this
+	\end{itemize}
     Show examples, demonstrate different paradigms (e.g. setting one device as the 'default' block vs keeping a hold of several blocks)\\
     \textbf{TODO:} example of obtaining a device connection in new leJOS compared to old
     	\subsection{leJOS}
+	Previously the leJOS Java Virtual Machine has been utilised within the SEP course in order to provide an interface for programming the NXT using the Java programming language. However as well as solid functions the leJOS NXT library had incomplete, untested and unimplemented methods, all of which handicapped SEP project development.\\
+Given the incomplete nature of the previous library we were at first apprehensive, but given exposure to the leJOS EV3 library we are very satisfied with the progress that has occurred since the previous library.\\
+\textbf{TODO:} can I say we?
+
 	\begin{itemize}
 		\item New features supported
 		\item QWERTY onscreen-keyboard is a little unwieldy
 	\end{itemize}
  	\section{Connectivity}
+A core feature of the NXT was its connectable nature; it could be programmed and controlled by a wide range of heterogeneous hardware and operating systems (including Windows, OSX and other Linux-based systems). The EV3 has built upon this fundamental property by introducing a new connection method ( wifi based connections) and by improving upon existing connections (for example by increasing the speed of USB connections enormously and by streamlining Bluetooth connectivity).
    \begin{itemize}
     \item Due to architecture change you can connect directly to the block via an IP address
    \end{itemize}
  	\subsection{WiFi}
    \begin{itemize}
     \item Plug and play functionality (supports several mainstream chipsets)
-    \item leJOS has a 'connection' menu item
+    \item leJOS has a 'connection' menu item, IP address is clearly displayed
     \item Connections can be configured on the Micro SD image to avoid repeated configuration
    \end{itemize}
  		\subsubsection{OSX}
