@@ -2,6 +2,7 @@
 \setlength{\parindent}{0pt}
 \newlength{\drop}
 \usepackage{textcomp}
+\usepackage{float}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
@@ -59,7 +60,7 @@
 		\subsection{Brick Comparison}
 
 
-		\begin{figure}[h!]
+		\begin{figure}[H]
 		\begin{subfigure}{.45\textwidth}
 		  \centering
 		  \includegraphics[scale=0.23]{img/EV3Brick.png}
@@ -78,7 +79,7 @@
 		\subsection{New Features}
 		\textbf{TODO:} Add images of new modules (e.g. WiFi, USB host port, medium motor, improved ultrasonic sensor, etc.)
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.45]{img/EV3Brick_Labelled.png}
 		\caption{EV3 Brick with new features}
@@ -186,7 +187,7 @@ The new button scheme can be observed in figure 2.
 		\subsubsection{Gyroscope}
 		This new sensor is amazing when actually working. It will report either changes to the angle, or rate of change to the angle of the sensor with a decent amount of accuracy (plus or minus a degree or two). \\
 		
-		\begin{figure}[h]
+		\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.45]{img/EV3GyroSensor.png}
 		\caption{EV3 Gyroscope Sensor}
@@ -201,7 +202,7 @@ The new button scheme can be observed in figure 2.
 
 
   		\subsubsection{Ultrasonic}
-		\begin{figure}[h]
+		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.45]{img/EV3UltrasonicSensor.png}
 	  	\caption{EV3 Ultrasonic Sensor}
@@ -215,7 +216,7 @@ The new button scheme can be observed in figure 2.
 
 
   		\subsubsection{Bump}
-		\begin{figure}[h]
+		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.25]{img/EV3BumpSensor.png}
 		\caption{EV3 Bump Sensor}
@@ -229,7 +230,7 @@ The new button scheme can be observed in figure 2.
 
 	\subsection{Motors}
 		\subsubsection{Large}
-		\begin{figure}[h!]
+		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.45]{img/EV3LargeMotor.png}
 		\caption{EV3 Large Motor}
@@ -244,7 +245,7 @@ The new button scheme can be observed in figure 2.
 
 		Possible problems: depending on the application it may be very important to keep track of the 'arm' being moved by the motors position. In tests it proved very easy to cause the shovel arm (design included in the Lego build manual) to collide with the motor itself which could potentially damage the internal mechanics of the motor.\\
 
-		\begin{figure}[h!]
+		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.45]{img/EV3MediumMotor.png}
 		\caption{EV3 Medium Motor}
@@ -269,22 +270,22 @@ The new button scheme can be observed in figure 2.
 		\subsubsection{Frames}
 		The addition of several pre-made rectangular frames greatly assists robot design and build. Many of the other pieces (such as the EV3 sensor modules) easily and logically slot in to varying positions on these frames to allow quick, intuitive and strong robot designs.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 		\begin{subfigure}{.45\textwidth}
 		  \centering
 		  \includegraphics[scale=0.23]{img/Frame1.jpg}
-		  \caption{Piece 4540797}
+		  \caption{Part 4540797}
 		\end{subfigure}%
 		\begin{subfigure}{.45\textwidth}
 		  \centering
 		  \includegraphics[scale=0.23]{img/Frame2.jpg}
-		  \caption{Piece 4539880}
+		  \caption{Part 4539880}
 		\end{subfigure}
 		\end{figure}		
 		
 		\subsubsection{Sensor mounts}
 		Every sensor now has an axle connector between two standard round holes. These axle connectors allow for quick mounting of any new sensor in essentially any desired position on the robot.
-		\begin{figure}[h!]
+		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.25]{img/EV3SensorMount.png}
 		\caption{EV3 Sensor mount indicated by red circle.}
@@ -295,12 +296,62 @@ The new button scheme can be observed in figure 2.
 	\subsection{Eclipse}
 	Each version of leJOS has been released alongside plugins for Eclipse which enabled a high level of integration between the leJOS library and the Eclipse IDE. The NXT block allowed for relatively simplistic functionality however the EV3 plugin is quite improved and allows for advanced functionality such as:
 	\begin{itemize}
-		\item The ability to push code straight to the EV3 brick with minimal configuration (almost none is required if a USB connection is utilised).\\ \textbf{TODO:} add image describing the simplicity of pushing code to the EV3 block
+		\item The ability to push code straight to the EV3 brick with minimal configuration (almost none is required if a USB connection is utilised).\\ 
 		\item Fully leJOS API documentation; meaning to see what a method does it's only necessary to hover over the method signature with the mouse (rather than investigating it in an internet browser window).
 		
 	\end{itemize} 
+	
+	\subsubsection{Installation}
+		\begin{enumerate}
+		\item Make sure you have installed Java JDK and the leJOS software from this site \url{http://www.lejos.org/ev3.php}
+		
+		\item Start Eclipse
+		
+		\item Go to Help then Install New Software on the top menu bar(see Figure 10)
+		
+		\begin{figure}[H]
+	  	\centering
+	  	\includegraphics[scale=0.95]{img/Eclipse01.png}
+	  	\caption{ }
+		\end{figure}	
+				
+		\item An Install window will pop up. Click the Add button in the top right corner of the window.
+		
+		\item Give the respository a name such as "EV3 LeJOS". Then enter the URL \url{http://lejos.sourceforge.net/tools/eclipse/plugin/ev3} in the Location test box and click OK.(see Figure 11)
+		
+		\begin{figure}[H]
+	  	\centering
+	  	\includegraphics[scale=0.55]{img/Eclipse02.png}
+	  	\caption{ }
+		\end{figure}
+		
+		\item In a few seconds "leJOS EV3 Support" will appear in the selection box. Check the tick box next to this and click Next. Eclpse will now calculate the requirements and dependencies for the plugin, this step can take a minute or so. (see Figure 12)
+		\begin{figure}[H]
+	  	\centering
+	  	\includegraphics[scale=0.55]{img/Eclipse03.png}
+	  	\caption{ }
+		\end{figure}
+				
+		\item If you find that Eclipse is taking too long on this step, it usually means that your antivirus(most likely AVG) program has messed up this process. Simply close Eclipse, disable the antivirus program temporarily and start from step 1. Make sure to turn on your antivirus after the installation completes.
+		
+		\item Click next under Install Details to come to a Review Licenses window.
+		
+		\item Click "I accept the terms of the license agreement" and hit finish.
+		
+		\item Installation will now  begin, a certificate warning may pop up, just select OK to continue installation. A restart of Eclipse is required for the plugin to start working. 
+		
+		\item Once the restart is complete you will now see leJOS EV3 as part of the menu bar.
+		
+		\item To allow Eclipse to automatically connect to your robot, go to the menu bar, select Window then Preferences. Go to leJOS EV3 section and enter the IP address of your robot in the Name text box. Make sure "Connect to named brick" is ticked. Click OK to complete the process.
+		\begin{figure}[H]
+	  	\centering
+	  	\includegraphics[scale=0.70]{img/Eclipse04.png}
+	  	\caption{ }
+		\end{figure}		
+		
+		\item After this is done any time you press the Run button, Eclipse will automatically upload your code to the brick and start it. Note, you will need to connect the brick to the computer via either USB, Bluetooth or WiFi for Eclipse to be able to upload to the robot. Hitting run with out an active connection will result in Eclipse creating the JAR file, then an error message will appear.
+		\end{enumerate}	
   
-
    	\subsection{leJOS}
 	Previously the leJOS Java Virtual Machine has been utilised within the SEP course in order to provide an interface for programming the NXT using the Java programming language. However as well as solid functions the leJOS NXT library had incomplete, untested and unimplemented methods, all of which handicapped SEP project development.\newline \newline
 	
@@ -318,7 +369,7 @@ A flaw of the original NXT kit was the uncertainty present at the beginning of t
 		\subsubsection{Java RMI}
 	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}ethod \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself! An example of this is included in the figure below: \\
 	\textbf{TODO:} insert demo of RMI code\\
-	\begin{figure}[h!]
+	\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.75]{img/EV3_RMI.png}
 		\caption{A complete EV3 program which connects and sets the connected EV3 as the default device and triggers a Beep sound from the EV3s embedded speaker}
@@ -326,7 +377,7 @@ A flaw of the original NXT kit was the uncertainty present at the beginning of t
 	
 If the programmer on the PC issues a command which conflicts with the current EV3 directive the new command will be queued to be enacted after the current command. For example if the EV3 has autonomously decided to move forward 10 centimetres and the programmer told the robot to move forward 3 centimetres the robot will move 3 centimeters \textbf{after} moving the previous 10 centimeters.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.6]{img/EV3_NXT.png}
 		\caption{A method inside a NXT program for obtaining a connection to the NXT device. Note the use of four custom classes \emph{just} for obtaining a connection.}
@@ -361,11 +412,17 @@ The change from the use of a proprietary operating system to a Unix-based one ha
     \item Requires the use of a WiFi dongle to activate WiFi capabilities. 
     \item Plug and play functionality (supports several mainstream chipsets)
     \item leJOS has a 'connection' menu item, IP address is clearly displayed
+    \item Connect to a dedicated network just as you would any other device by using the leJOS WiFi tool to search for available networks, selecting the network then enter a password. If DHCP is setup on the network a new IP address will be given the the EV3 Brick so make sure your SSH tool or Eclipse has the latest IP address.
     \item Connections can be configured on the Micro SD image to avoid repeated configuration
    \end{itemize}
  		\subsubsection{OSX}
 			Tested, functional
  		\subsubsection{Windows}
+	 		Successfully tested under both Windows 7 and Windows 8.1.
+	 		
+ 			Once the Brick has successfully joined your network you can ping the IP address from any machine to check connection. If connection was successful, simply use the IP address to either SSH to the robot or enter the IP address into Eclipse for easy code uploading. (See step 12 of Section 3.1.1).
+ 			
+ 			
  	\subsection{Bluetooth}
   		\subsubsection{OSX}
 		\begin{itemize}
@@ -441,16 +498,23 @@ The change from the use of a proprietary operating system to a Unix-based one ha
 		Some of the requirements could be given to post-grads only. The test map would probably need to be A0 in size to allow a decent test area. 
 		
 
-
+  \newpage
   \section{Revision History}
   \begin{center}
-  \begin{tabular}{ | l | l | l | p{4cm} |}
+  \begin{tabular}{ | l | l | l | p{6cm} |}
   \hline
-  \textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Description} \\ \hline
-  1.0 & 15 Dec 14 & Xiang Guo (a1077337) & Created Draft 1 \\ \hline
-
+  \textbf{\small Version} & \textbf{\small Date} & \textbf{\small Author} & \textbf{\small Description} \\ \hline
+  \small 0.1 & \small 15 Dec 14 & \small Xiang Guo & \small Created Draft 1 \\ \hline
+  \small 0.2 & \small 15 Dec 14 & \small Thomas McAtee & \small Added USB and connectivity section \\ \hline
+  \small 0.3 & \small 16 Dec 14 & \small Thomas McAtee & \small Added more ToDos and bullet points \\ \hline
+  \small 0.31 & \small 16 Dec 14 & \small Thomas McAtee & \small Added more to Connectivity and Software \\ \hline    
+  \small 0.4 & \small 17 Dec 14 & \small Xiang Guo  & \small Added more detail to Hardware, Feasibility, Possible Future project and Additional project ideas. \\ \hline
+  \small 0.5 & \small 18 Dec 14 & \small Thomas McAtee & \small Added more to section 3 and section 2 \\ \hline   
+  \small 0.51 & \small 18 Dec 14 & \small Thomas McAtee & \small Merged RMI and leJOS sections in section 3 \\ \hline    
+  \small 0.6 & \small 18 Dec 14 & \small Xiang Guo & \small Added Eclipse installation guide. \\ \hline
+  \small 0.61 & \small 18 Dec 14 & \small Xiang Guo & \small Added Wifi for windows details and detailed revision history \\ \hline
   \end{tabular}
   \end{center}
-  \textbf{TODO:} Synchronise this with GitHub revision history
+
 
 \end{document}
