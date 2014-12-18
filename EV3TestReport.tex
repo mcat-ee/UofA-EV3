@@ -148,27 +148,29 @@
 		
 		\subsubsection{Battery}
 		\begin{itemize}
-		\item Lithium ion (AA battery pack also supplied)
-		\item 2050mAh compared to 2100mAh of the NXT.
-		\item The EV3 seems to have better battery performance than the NXT battery that was tested. This was most likely due to the age of the NXT kits.
+			\item Lithium ion (AA battery pack also supplied)
+			\item 2050mAh compared to 2100mAh of the NXT.
+			\item The EV3 seems to have better battery performance than the NXT battery that was tested. This was most likely due to the age of the NXT kits.
 		\end{itemize}
 		\subsubsection{Buttons}
-			\begin{itemize}
-				\item Backlit
-				\item 6 hardware buttons
-			\end{itemize}
+The EV3 button interface has greatly improved over the NXTs by the simple addition of two extra buttons to make six buttons. This allows two dimensional navigation rather than single dimensional navigation (as there are now four directional buttons rather than just two) and has a very handy backlight for button visibility in dark areas.\\
+The new button scheme can be observed in figure 2.
 
   	\subsection{Sensors}
-	\textbf{TODO:} include images for each sensor?
   		\subsubsection{Light}
-  		Same device as the NXT Robot. New API on EV3 which returns a float instead of an int. Accurate to 2 decimal places. New API does not allow calibration (which isn't a new feature; the NXT API did not include methods to truly calibrate the sensor anyway, it simply created upper or lower bounds and normalised the returned data). If users wish to do this kind of soft calibration, they can use the source code for the NXT LeJOS API as a guide. \\
+		
+  		The same module as the NXT Robot. New API on EV3 which returns a float instead of an int. Accurate to 2 decimal places. New API does not allow calibration (which isn't a new feature; the NXT API did not include methods to truly calibrate the sensor anyway, it simply created upper or lower bounds and normalised the returned data). If users wish to do this kind of soft calibration, they can use the source code for the NXT LeJOS API as a guide. \\
 
   		Has two modes, reflection and ambient. Reflection is the default mode and should be used for line following code. Black lines on normal print paper show up at around 40\% reflection whereas white paper shows up as roughly 75\%.
 
-  		Ambient mode can be used to detect light sources. This might be an interesting feature if the robot can orientate itself based on a light source.
-
+  		Ambient mode can be used to detect light sources. This could potentially be used to orientate a robot based on a nearby light source.
 
   		\subsubsection{Color}
+		\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.45]{img/EV3ColorSensor.png}
+		\caption{EV3 Color Sensor}
+		\end{figure}
   		The Color sensor has three modes: Reflection, Ambient and Color. Ambient and Reflection modes are the same as the Light Sensor equivalent, however the sensitivity of the sensor while measuring both is different. \\
 
   		Ambient mode is around half the sensitivity of the Light Sensor which means it should be able to differentiate between relatively bright light sources but might have trouble differentiating low level light sources. \\
@@ -302,13 +304,16 @@
    	\subsection{leJOS}
 	Previously the leJOS Java Virtual Machine has been utilised within the SEP course in order to provide an interface for programming the NXT using the Java programming language. However as well as solid functions the leJOS NXT library had incomplete, untested and unimplemented methods, all of which handicapped SEP project development.\newline \newline
 	
-	Given the incomplete nature of the previous library we were at first apprehensive, but given exposure to the leJOS EV3 library we are very satisfied with the progress that has occurred since the previous library.\\
+Given the incomplete nature of the previous library we were at first apprehensive, but given exposure to the leJOS EV3 library we are very satisfied with the progress that has occurred since the previous library.\\
+An unexpected (yet highly desirable) addition was the inclusion of an RMI interface for the EV3 brick; this allows for simpler and streamlined code (compare the amount of code included in the following two figures) and also allows for a wider variety of system architectures.\\
+
+A flaw of the original NXT kit was the uncertainty present at the beginning of the course as to whether all the sensor modules performed exactly as they were expected to; the new leJOS JVM soothes this uncertainty somewhat by providing a very thorough testing suite which can be launched from a freshly minted leJOS SD card.
 
 	\begin{itemize}
 		\item New features supported
 		\item QWERTY on-screen-keyboard is a little unwieldy
 		\item Longer boot time can be frustrating, but this is offset by the decreased need to reboot due to ease of uploading software from Eclipse and increased stability in LeJOS.
-		\item LeJOS now comes with full sensor test suite. This is great for the early stages of the project as groups can test the sensors straight after receiving the kit. This should assist in better robot designs. This will also allow each group to test their sensors and discover any faulty hardware early in the project.
+		\item 
 	\end{itemize}
 		\subsubsection{Java RMI}
 	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}ethod \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself! An example of this is included in the figure below: \\
