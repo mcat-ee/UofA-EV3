@@ -144,8 +144,6 @@
 		
 		\end{itemize}
 		
-		\subsubsection{Connections}
-		\textbf{TODO:} is this an overview of the wifi/usb/bluetooth capability??
 		
 		\subsubsection{Battery}
 		\begin{itemize}
@@ -155,21 +153,28 @@
 		\end{itemize}
 		\subsubsection{Buttons}
 The EV3 button interface has greatly improved over the NXTs by the simple addition of two extra buttons to make six buttons. This allows two dimensional navigation rather than single dimensional navigation (as there are now four directional buttons rather than just two) and has a very handy backlight for button visibility in dark areas.\\
-The new button scheme can be observed in figure 2.
+The Escape button has been relocated to directly underneath the LCD display slightly shifted to the left. Functionality remains the same as the NXT Escape button. \\
+The new button scheme can be observed in figure 2. 
 
   	\subsection{Sensors}
   		\subsubsection{Light}
 		
   		The same module as the NXT Robot. New API on EV3 which returns a float instead of an int. Accurate to 2 decimal places. New API does not allow calibration (which isn't a new feature; the NXT API did not include methods to truly calibrate the sensor anyway, it simply created upper or lower bounds and normalised the returned data). If users wish to do this kind of soft calibration, they can use the source code for the NXT LeJOS API as a guide. \\
 
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.25]{img/NXTLightSensor.png}
+		\caption{NXT Light Sensor}
+		\end{figure}
+
   		Has two modes, reflection and ambient. Reflection is the default mode and should be used for line following code. Black lines on normal print paper show up at around 40\% reflection whereas white paper shows up as roughly 75\%.
 
   		Ambient mode can be used to detect light sources. This could potentially be used to orientate a robot based on a nearby light source.
 
   		\subsubsection{Color}
-		\begin{figure}[h]
+		\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.45]{img/EV3ColorSensor.png}
+		\includegraphics[scale=0.25]{img/EV3ColorSensor.png}
 		\caption{EV3 Color Sensor}
 		\end{figure}
   		The Color sensor has three modes: Reflection, Ambient and Color. Ambient and Reflection modes are the same as the Light Sensor equivalent, however the sensitivity of the sensor while measuring both is different. \\
@@ -307,7 +312,7 @@ The new button scheme can be observed in figure 2.
 		
 		\item Start Eclipse
 		
-		\item Go to Help then Install New Software on the top menu bar(see Figure 10)
+		\item Go to Help then Install New Software on the top menu bar
 		
 		\begin{figure}[H]
 	  	\centering
@@ -317,7 +322,7 @@ The new button scheme can be observed in figure 2.
 				
 		\item An Install window will pop up. Click the Add button in the top right corner of the window.
 		
-		\item Give the respository a name such as "EV3 LeJOS". Then enter the URL \url{http://lejos.sourceforge.net/tools/eclipse/plugin/ev3} in the Location test box and click OK.(see Figure 11)
+		\item Give the respository a name such as "EV3 LeJOS". Then enter the URL \url{http://lejos.sourceforge.net/tools/eclipse/plugin/ev3} in the Location test box and click OK.
 		
 		\begin{figure}[H]
 	  	\centering
@@ -325,7 +330,7 @@ The new button scheme can be observed in figure 2.
 	  	\caption{ }
 		\end{figure}
 		
-		\item In a few seconds "leJOS EV3 Support" will appear in the selection box. Check the tick box next to this and click Next. Eclpse will now calculate the requirements and dependencies for the plugin, this step can take a minute or so. (see Figure 12)
+		\item In a few seconds "leJOS EV3 Support" will appear in the selection box. Check the tick box next to this and click Next. Eclpse will now calculate the requirements and dependencies for the plugin, this step can take a minute or so. 
 		\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.55]{img/Eclipse03.png}
