@@ -299,10 +299,21 @@
 	\end{itemize} 
   
 	\subsection{Java RMI}
-	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}method \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself! An example of this is included in the figure below: \\
+	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}ethod \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself! An example of this is included in the figure below: \\
 	\textbf{TODO:} insert demo of RMI code\\
+	\begin{figure}[h!]
+	  	\centering
+	  	\includegraphics[scale=0.75]{img/EV3_RMI.png}
+		\caption{A complete EV3 program which connects and sets the connected EV3 as the default device and triggers a Beep sound from the EV3s embedded speaker}
+		\end{figure}	
 	
 If the programmer on the PC issues a command which conflicts with the current EV3 directive the new command will be queued to be enacted after the current command. For example if the EV3 has autonomously decided to move forward 10 centimetres and the programmer told the robot to move forward 3 centimetres the robot will move 3 centimeters \textbf{after} moving the previous 10 centimeters.
+
+\begin{figure}[h!]
+	  	\centering
+	  	\includegraphics[scale=0.6]{img/EV3_NXT.png}
+		\caption{A method inside a NXT program for obtaining a connection to the NXT device. Note the use of four custom classes \emph{just} for obtaining a connection.}
+		\end{figure}	
 	
 	\begin{itemize}
 		\item Explain what the RMI model involves
