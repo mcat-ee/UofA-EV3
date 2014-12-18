@@ -163,7 +163,7 @@
   		\subsubsection{Light}
   		Same device as the NXT Robot. New API on EV3 which returns a float instead of an int. Accurate to 2 decimal places. New API does not allow calibration (which isn't a new feature; the NXT API did not include methods to truly calibrate the sensor anyway, it simply created upper or lower bounds and normalised the returned data). If users wish to do this kind of soft calibration, they can use the source code for the NXT LeJOS API as a guide. \\
 
-  		Has two modes, reflection and ambient. Reflection is the default mode and should be used for line following code. Black lines on normal print paper show up at around 40 percent reflection whereas white paper shows up as roughly 75\%.
+  		Has two modes, reflection and ambient. Reflection is the default mode and should be used for line following code. Black lines on normal print paper show up at around 40\% reflection whereas white paper shows up as roughly 75\%.
 
   		Ambient mode can be used to detect light sources. This might be an interesting feature if the robot can orientate itself based on a light source.
 
@@ -298,7 +298,19 @@
 		
 	\end{itemize} 
   
-	\subsection{Java RMI}
+
+   	\subsection{leJOS}
+	Previously the leJOS Java Virtual Machine has been utilised within the SEP course in order to provide an interface for programming the NXT using the Java programming language. However as well as solid functions the leJOS NXT library had incomplete, untested and unimplemented methods, all of which handicapped SEP project development.\newline \newline
+	
+	Given the incomplete nature of the previous library we were at first apprehensive, but given exposure to the leJOS EV3 library we are very satisfied with the progress that has occurred since the previous library.\\
+
+	\begin{itemize}
+		\item New features supported
+		\item QWERTY on-screen-keyboard is a little unwieldy
+		\item Longer boot time can be frustrating, but this is offset by the decreased need to reboot due to ease of uploading software from Eclipse and increased stability in LeJOS.
+		\item LeJOS now comes with full sensor test suite. This is great for the early stages of the project as groups can test the sensors straight after receiving the kit. This should assist in better robot designs. This will also allow each group to test their sensors and discover any faulty hardware early in the project.
+	\end{itemize}
+		\subsubsection{Java RMI}
 	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}ethod \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself! An example of this is included in the figure below: \\
 	\textbf{TODO:} insert demo of RMI code\\
 	\begin{figure}[h!]
@@ -323,21 +335,9 @@ If the programmer on the PC issues a command which conflicts with the current EV
     Show examples, demonstrate different paradigms (e.g. setting one device as the 'default' block vs keeping a hold of several blocks)\\
     \textbf{TODO:} example of obtaining a device connection in new leJOS compared to old
 
-   	\subsection{leJOS}
-	Previously the leJOS Java Virtual Machine has been utilised within the SEP course in order to provide an interface for programming the NXT using the Java programming language. However as well as solid functions the leJOS NXT library had incomplete, untested and unimplemented methods, all of which handicapped SEP project development.\newline \newline
-	
-	Given the incomplete nature of the previous library we were at first apprehensive, but given exposure to the leJOS EV3 library we are very satisfied with the progress that has occurred since the previous library.\\
-
-	\begin{itemize}
-		\item New features supported
-		\item QWERTY on-screen-keyboard is a little unwieldy
-		\item Longer boot time can be frustrating, but this is offset by the decreased need to reboot due to ease of uploading software from Eclipse and increased stability in LeJOS.
-		\item LeJOS now comes with full sensor test suite. This is great for the early stages of the project as groups can test the sensors straight after receiving the kit. This should assist in better robot designs. This will also allow each group to test their sensors and discover any faulty hardware early in the project.
-	\end{itemize}
-	
 	\subsubsection{Installation}
 	See the following URL for installation details. \newline
-	\url{http://sourceforge.net/p/lejos/wiki/Installing%20leJOS/}
+	\url{http://sourceforge.net/p/lejos/wiki/Installing\%20leJOS/}
 	\newline\newline
 	A micro SD card is required for LeJOS to operate on the EV3 Brick. The older NXT Brick which lacked any expansion ports, had to replace the existing Lego software with LeJOS. The EV3 however can boot off the SD card directly, there by retaining the previous OS. However, this does mean that one micro SD card is required for each EV3 brick to operate LeJOS. \newline
 	
