@@ -407,11 +407,17 @@ The change from the use of a proprietary operating system to a Unix-based one ha
     \item Requires the use of a WiFi dongle to activate WiFi capabilities. 
     \item Plug and play functionality (supports several mainstream chipsets)
     \item leJOS has a 'connection' menu item, IP address is clearly displayed
+    \item Connect to a dedicated network just as you would any other device by using the leJOS WiFi tool to search for available networks, selecting the network then enter a password. If DHCP is setup on the network a new IP address will be given the the EV3 Brick so make sure your SSH tool or Eclipse has the latest IP address.
     \item Connections can be configured on the Micro SD image to avoid repeated configuration
    \end{itemize}
  		\subsubsection{OSX}
 			Tested, functional
  		\subsubsection{Windows}
+	 		Successfully tested under both Windows 7 and Windows 8.1.
+	 		
+ 			Once the Brick has successfully joined your network you can ping the IP address from any machine to check connection. If connection was successful, simply use the IP address to either SSH to the robot or enter the IP address into Eclipse for easy code uploading. (See step 12 of Section 3.1.1).
+ 			
+ 			
  	\subsection{Bluetooth}
   		\subsubsection{OSX}
 		\begin{itemize}
@@ -487,16 +493,23 @@ The change from the use of a proprietary operating system to a Unix-based one ha
 		Some of the requirements could be given to post-grads only. The test map would probably need to be A0 in size to allow a decent test area. 
 		
 
-
+  \newpage
   \section{Revision History}
   \begin{center}
-  \begin{tabular}{ | l | l | l | p{4cm} |}
+  \begin{tabular}{ | l | l | l | p{6cm} |}
   \hline
-  \textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Description} \\ \hline
-  1.0 & 15 Dec 14 & Xiang Guo (a1077337) & Created Draft 1 \\ \hline
-
+  \textbf{\small Version} & \textbf{\small Date} & \textbf{\small Author} & \textbf{\small Description} \\ \hline
+  \small 0.1 & \small 15 Dec 14 & \small Xiang Guo & \small Created Draft 1 \\ \hline
+  \small 0.2 & \small 15 Dec 14 & \small Thomas McAtee & \small Added USB and connectivity section \\ \hline
+  \small 0.3 & \small 16 Dec 14 & \small Thomas McAtee & \small Added more ToDos and bullet points \\ \hline
+  \small 0.31 & \small 16 Dec 14 & \small Thomas McAtee & \small Added more to Connectivity and Software \\ \hline    
+  \small 0.4 & \small 17 Dec 14 & \small Xiang Guo  & \small Added more detail to Hardware, Feasibility, Possible Future project and Additional project ideas. \\ \hline
+  \small 0.5 & \small 18 Dec 14 & \small Thomas McAtee & \small Added more to section 3 and section 2 \\ \hline   
+  \small 0.51 & \small 18 Dec 14 & \small Thomas McAtee & \small Merged RMI and leJOS sections in section 3 \\ \hline    
+  \small 0.6 & \small 18 Dec 14 & \small Xiang Guo & \small Added Eclipse installation guide. \\ \hline
+  \small 0.61 & \small 18 Dec 14 & \small Xiang Guo & \small Added Wifi for windows details and detailed revision history \\ \hline
   \end{tabular}
   \end{center}
-  \textbf{TODO:} Synchronise this with GitHub revision history
+
 
 \end{document}
