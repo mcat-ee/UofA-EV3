@@ -77,7 +77,6 @@
 
 
 		\subsection{New Features}
-		\textbf{TODO:} Add images of new modules (e.g. WiFi, USB host port, medium motor, improved ultrasonic sensor, etc.)
 		
 		\begin{figure}[H]
 	  	\centering
@@ -145,8 +144,11 @@
 		\end{itemize}
 		
 		\subsubsection{Connections}
-		\textbf{TODO:} is this an overview of the wifi/usb/bluetooth capability??
-		
+		\begin{itemize}
+			\item Bluetooth connectivity
+			\item USB connectivity (both via mini USB and via a USB host port). The host port also supports slave EV3 devices.
+			\item Wireless connectivity; the device has support for a USB wifi dongle
+		\end{itemize}
 		\subsubsection{Battery}
 		\begin{itemize}
 			\item Lithium ion (AA battery pack also supplied)
@@ -367,14 +369,15 @@ A flaw of the original NXT kit was the uncertainty present at the beginning of t
 		\item 
 	\end{itemize}
 		\subsubsection{Java RMI}
-	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}ethod \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself! An example of this is included in the figure below: \\
-	\textbf{TODO:} insert demo of RMI code\\
+	The EV3 version of the leJOS library allows EV3 devices to be accessed through a RMI (\textbf{R}emote \textbf{M}ethod \textbf{I}nvocation) interface; essentially this means that a PC (or other device) can call methods on the EV3 as if it were actually the EV3 itself!\\
+An example of this is included in the figure below: \\
 	\begin{figure}[H]
 	  	\centering
 	  	\includegraphics[scale=0.75]{img/EV3_RMI.png}
 		\caption{A complete EV3 program which connects and sets the connected EV3 as the default device and triggers a Beep sound from the EV3s embedded speaker}
 		\end{figure}	
-	
+
+This RMI interface works directly with leJOS; it's not required that there be a second program waiting on the EV3 device for method calls from the host computer.\\
 If the programmer on the PC issues a command which conflicts with the current EV3 directive the new command will be queued to be enacted after the current command. For example if the EV3 has autonomously decided to move forward 10 centimetres and the programmer told the robot to move forward 3 centimetres the robot will move 3 centimeters \textbf{after} moving the previous 10 centimeters.
 
 \begin{figure}[H]
@@ -389,7 +392,6 @@ If the programmer on the PC issues a command which conflicts with the current EV
 		\item Give an example of a code block for this
 	\end{itemize}
     Show examples, demonstrate different paradigms (e.g. setting one device as the 'default' block vs keeping a hold of several blocks)\\
-    \textbf{TODO:} example of obtaining a device connection in new leJOS compared to old
 
 	\subsubsection{Installation}
 	See the following URL for installation details. \newline
@@ -414,20 +416,21 @@ The change from the use of a proprietary operating system to a Unix-based one ha
     \item leJOS has a 'connection' menu item, IP address is clearly displayed
     \item Connect to a dedicated network just as you would any other device by using the leJOS WiFi tool to search for available networks, selecting the network then enter a password. If DHCP is setup on the network a new IP address will be given the the EV3 Brick so make sure your SSH tool or Eclipse has the latest IP address.
     \item Connections can be configured on the Micro SD image to avoid repeated configuration
+    \item The EV3 appears to only have 2.4 GHz network support; the 5 GHz test network did not appear as a connectable option.
    \end{itemize}
  		\subsubsection{OSX}
-			Tested, functional
+			Tested, functional under OS X 10.9.\\
  		\subsubsection{Windows}
-	 		Successfully tested under both Windows 7 and Windows 8.1.
-	 		
- 			Once the Brick has successfully joined your network you can ping the IP address from any machine to check connection. If connection was successful, simply use the IP address to either SSH to the robot or enter the IP address into Eclipse for easy code uploading. (See step 12 of Section 3.1.1).
+	 		Successfully tested under both Windows 7 and Windows 8.1.\\
+	 	
+ Once the Brick has successfully joined your network you can ping the IP address from any machine to check connection. If connection was successful, simply use the IP address to either SSH to the robot or enter the IP address into Eclipse for easy code uploading. (See step 12 of Section 3.1.1).
  			
  			
  	\subsection{Bluetooth}
   		\subsubsection{OSX}
 		\begin{itemize}
 			\item Still unable to simply connect via Bluetooth
-			\item Forum posts show that other users' efforts are similarly problem affected
+			\item Technical forum posts show that other users' efforts are similarly problem affected
 		\end{itemize}
   		\subsubsection{Windows}
 		\begin{itemize}
@@ -446,15 +449,15 @@ The change from the use of a proprietary operating system to a Unix-based one ha
 
     \end{itemize}
  		\subsubsection{OSX}
-
+Plug and play functionality; (once the Eclipse plugin was installed) I was able to push code to the block with a single button press.
  		\subsubsection{Windows}
-
+	\textbf{TODO}
 
    	\section{Conclusion}
    		\subsection{Feasibility}
-   		There is no doubt in our minds that the EV3 will be a great replacement for the NXT for the purpose of future projects. Every aspect of the NXT has been improved upon. 
+   		There is no doubt in our minds that the EV3 will be a great replacement for the NXT for the purpose of future projects. Every aspect of the NXT has been improved upon, ranging from the basic block design down to the advanced nature of the OS and modules. \\
    		
-   		Increased sensitivity or functionality in all sensors greatly increases accuracy and stability of the robots functions. The changes in the API makes coding more intuitive. 
+Increased sensitivity or functionality in all sensors greatly increases accuracy and stability of the robots functions. The changes in the API makes coding more intuitive with less code structural decisions that have to be 'worked around'.\\ 
    		
    		The improved API should drastically decrease the difficulty of the project. 
    		
@@ -465,6 +468,7 @@ The change from the use of a proprietary operating system to a Unix-based one ha
 			\begin{itemize}
 			\item Single colour sensor as line and underground object detector. Gyroscope sensor for robot positioning feedback. Ultrasonic sensor for above ground object detector. Single bump sensor with a wide bar attached could be used as a collision detector to further improve on aboveground object detection.
 			\item Single colour sensor as line and underground object detector. Gyroscope sensor for robot positioning feedback. Two bump sensors mounted on different parts of the robot for collision detection.
+			
 			\end{itemize}
 			
 			
@@ -472,26 +476,27 @@ The change from the use of a proprietary operating system to a Unix-based one ha
    		These are ideas which may be suited for post-graduates. 
    		
    		\begin{itemize}
-   		\item The EV3 brick comes with 4 motor ports, while 3 motors are supplied(2 large and one medium).  One idea could be to cannibalise some of the older NXT kits which contains 3 motors each and give the post-grads an extra NXT motor to accomplish an additional task such as picking up an object and placing it elsewhere or planting a “flag” on a designated area.
+   		\item The EV3 brick comes with 4 motor ports, while 3 motors are supplied(2 large and one medium).  One idea could be to cannibalise some of the older NXT kits which contains 3 motors each and give the post-grads an extra NXT motor to accomplish an additional task such as picking up an object and placing it elsewhere or planting a flag on a designated area.
    		
    		\item The additional motor can be used to change orientation of some sensors to accomplish different tasks. Such as rotating the colour sensor from a vertical position during line following to a horizontal position when an above ground object is detected and it has to then detect the color of the above ground object and change it’s behaviour based on the detected colour.
    		
    		\item Both the light and colour sensor also has a decent Ambient light sensing mode. This can be utilised to perhaps have the robot find a source of light on the map or alternatively if the light source is made to flickers on and off in a programmed sequence, it can be used to transmit binary or Morse code for the Robot to maybe detect and interpret. 
    		
-   		\item Providing a HTTP-served interface or data-view using the EV3 Brick as a web server.
+   		\item Given the nature of the leJOS operating system it may be possible to serve a robot control or data viewing interface over HTTP by using the EV3 as a web server.
    		
    		\item The gyroscope can be mounted on a motor arm which can change the orientation of the gyroscope to measure angle changes on multiple axis. This might be interesting if the robot is made to move over certain types of terrain. Or perhaps use the rate of change as a indicator of how quick the robot is turning and set either limits on the rate of turning to make sure the robot is slow and steady, or set goals for rate of turning to force robot in to quicker movements. 
    		\end{itemize}
    		
    		
 		\subsection{Possible future project}
-		A "Google car" project where the Robot has to stay within two lines on a map which simulates a lane on a road. This would be a good use of the light and colour sensors on each side of the robot or if one of these sensors is mounted on a good length moving arms which can alternated between each side of the robot. The ultrasonic sensor can be used to detect objects in front of robot to avoid collision or "park" within a certain distance to an object or even keep a minimum distance to another robot. \newline
+		A "Google car" project where the Robot has to stay within two lines on a map which simulates a lane on a road. This would be a good use of the light and colour sensors on each side of the robot or if one of these sensors is mounted on a sliding arm it could be used to detect variable size lanes. The ultrasonic sensor can be used to detect objects in front of robot to avoid collision or "park" within a certain distance to an object or even keep a minimum distance to another robot. \newline
 		
-		The robot needs to stop at intersections which can be denoted by either a series of lines perpendicular to the lane lines or possibly a particular coloured line at the intersection(yellow and red). The detected colour will trigger either a stop behaviour or a go behaviour. Once stopped perhaps a green colour card can be manually placed under the colour sensor to indicate it can now move forward to continue operations.  \newline 
+		The robot needs to stop at intersections which can be denoted by either a series of lines perpendicular to the lane lines or possibly a particular coloured line at the intersection(yellow and red). The detected colour will trigger either a stop behaviour or a go behaviour. Once stopped perhaps a green colour card can be manually placed under the colour sensor to indicate it can now move forward to continue operations.\\
+		It may be possible to automate intersections, however that may introduce a significant level of overhead (for example one solution is that the signals could be served by an auxilliary device connected to the same wifi network as the group of 'cars')  \newline 
 		
-		Additional requirements could be, the robot needs to perform tasks in a certain time constraint or speed. It may have to travel at a minimum speed to simulate speed limits. It might have to demonstrate different speeds depending on what speed zone it is currently in. Speed zones might be able to be represented by different coloured lanes.  \newline 
+		Additional requirements could be, the robot needs to perform tasks in a certain time constraint or speed. It may have to travel at a bounded speed to simulate speed limits. It might have to demonstrate different speeds depending on what speed zone it is currently in. Speed zones might be able to be represented by different coloured lanes.  \newline 
 		
-		Automatic parking behaviour can also be part of the project. If the robot is given a command it might have to look for a parking space, drive past it and then reverse parallel park in to it or something like that. This might involve scanning the parking area with the ultrasonic sensor to make sure the robot can fit in the space.  \newline 
+		Automatic parking behaviour can also be part of the project. If the robot is given a command it might have to look for a parking space, drive past it and then reverse parallel park in to it. This might involve scanning the parking area with the ultrasonic sensor to make sure the robot can fit in the space.  \newline 
 		
 		Multiple robots from different teams can even be placed on the map at the same time(assuming the map is of sufficient size) to make sure they behave correctly in the presence of moving objects.  \newline 
 		
